@@ -73,6 +73,19 @@ def NumberOfDays():
       print("Enter a vaild number of DAYS")
 
 
+def NewPrices():
+  if days > 0:
+    if vehicleChoice == 'car':
+      car.set_rental_price_per_day(55)  
+      print(f"The new rental price per day for {car.brand}{car.model}: ${car.get_rental_price_per_day()}")
+    elif vehicleChoice == 'bike':
+      bike.set_rental_price_per_day(35)
+      print(f"The new rental price per day for {bike.brand}{bike.model}: ${bike.get_rental_price_per_day()}")
+    else:
+      print("You need to choose a VEHICLE first")
+  else:
+      print("You need to choose how many DAYS first")
+
 
 
 
@@ -107,3 +120,6 @@ while True:
   elif choice == 2:
     days = int(input("Enter how many days you want to rent: "))
     NumberOfDays()
+
+  elif choice == 3:
+    NewPrices()
