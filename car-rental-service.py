@@ -21,6 +21,9 @@ class Vehicle:
     print(f"Brand: {self.brand}, Model: {self.model}, Year: {self.year}, Rental Price per Day: ${self.get_rental_price_per_day()}, ")
   
 
+  def calculate_rental_cost(self,days):
+    return self.get_rental_price_per_day() * days
+
 
 class Car(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, seating_capacity):
@@ -56,6 +59,18 @@ def UserVehicleChoice():
       print('Vehicle not available') 
 
 
+def NumberOfDays():
+  if days > 0:
+    if vehicleChoice == 'car':
+      car_rental_cost= car.calculate_rental_cost(days)
+      print(f"Car rental cost for {days} days: ${car_rental_cost}")
+    elif vehicleChoice == 'bike':
+      bike_rental_cost= bike.calculate_rental_cost(days)
+      print(f"bike rental cost for {days} days: ${bike_rental_cost}")
+    else:
+      print("You need to choose a VEHICLE first")
+  else:
+      print("Enter a vaild number of DAYS")
 
 
 
@@ -66,6 +81,8 @@ def UserVehicleChoice():
 car = Car("Toyata", "Camry", 2022, 50 , 5)
 bike = Bike("Yamaha", "YZF-R3", 2021, 30, 321)
 
+vehicleChoice = None
+days = 0
 
 
 
@@ -86,3 +103,7 @@ while True:
   if choice == 1:
     vehicleChoice = input("Car or Bike ?: ").lower()
     UserVehicleChoice()
+  
+  elif choice == 2:
+    days = int(input("Enter how many days you want to rent: "))
+    NumberOfDays()
