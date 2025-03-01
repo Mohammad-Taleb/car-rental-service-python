@@ -40,3 +40,36 @@ class Bike(Vehicle):
   def display_info(self):
     super().display_info()
     print(f"Engine Capacity: {self.engine_capacity}cc")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+while True:
+  print("*************************************************")
+  print()
+  print("1 ==> To choose a Vehicle")
+  print("2 ==> To enter how many days to rent out")
+  print("3 ==> To show the updated prices")
+  print("4 ==> To show your chosen vehicle info")
+  print("0 ==> To exit the program")
+  print()
+  print("*************************************************")
+
+  
+  choice = int(input("Choose a number from the menu: "))
