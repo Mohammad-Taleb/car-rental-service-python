@@ -87,6 +87,17 @@ def NewPrices():
       print("You need to choose how many DAYS first")
 
 
+def ChosenVehicleInfo():
+   if vehicleChoice == 'car':
+      show_vehicle_info(car)
+   elif vehicleChoice == 'bike':
+      show_vehicle_info(bike)
+   else:
+      print("You need to choose a VEHICLE first")
+
+
+def show_vehicle_info(vehicle):
+  vehicle.display_info()
 
 
 
@@ -123,3 +134,10 @@ while True:
 
   elif choice == 3:
     NewPrices()
+
+  elif choice == 4:
+    ChosenVehicleInfo()
+
+  elif choice == 0:
+    print("PROGRAM EXIT")
+    break
