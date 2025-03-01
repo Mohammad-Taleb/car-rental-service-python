@@ -1,14 +1,15 @@
-class Vehicle:
+class Vehicle: #Parent class
   def __init__(self, brand, model, year, rental_price_per_day):
     self.brand = brand
     self.model = model
     self.year = year
     self.__rental_price_per_day = rental_price_per_day
 
+  #Getter method
   def get_rental_price_per_day(self):
     return self.__rental_price_per_day
   
-
+  #Setter method
   def set_rental_price_per_day(self, price):
     if price > 0:
       self.__rental_price_per_day = price
@@ -24,7 +25,7 @@ class Vehicle:
   def calculate_rental_cost(self,days):
     return self.get_rental_price_per_day() * days
 
-
+#Child class
 class Car(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, seating_capacity):
     super().__init__(brand, model, year, rental_price_per_day)
@@ -34,7 +35,7 @@ class Car(Vehicle):
    super().display_info()
    print(f"Seating Capacity: {self.seating_capacity}")
 
-
+#Child class
 class Bike(Vehicle):
   def __init__(self, brand, model, year, rental_price_per_day, engine_capacity):
     super().__init__(brand, model, year, rental_price_per_day)
@@ -47,7 +48,7 @@ class Bike(Vehicle):
 
 
 
-
+# ======== Functions ======== #
 
 
 def UserVehicleChoice():
@@ -76,10 +77,10 @@ def NumberOfDays():
 def NewPrices():
   if days > 0:
     if vehicleChoice == 'car':
-      car.set_rental_price_per_day(55)  
+      car.set_rental_price_per_day(55)  #Calling the setter
       print(f"The new rental price per day for {car.brand}{car.model}: ${car.get_rental_price_per_day()}")
     elif vehicleChoice == 'bike':
-      bike.set_rental_price_per_day(35)
+      bike.set_rental_price_per_day(35) #Calling the setter
       print(f"The new rental price per day for {bike.brand}{bike.model}: ${bike.get_rental_price_per_day()}")
     else:
       print("You need to choose a VEHICLE first")
@@ -95,20 +96,20 @@ def ChosenVehicleInfo():
    else:
       print("You need to choose a VEHICLE first")
 
-
+# Polymorphism
 def show_vehicle_info(vehicle):
   vehicle.display_info()
 
 
 
-
+# Class Instances
 car = Car("Toyata", "Camry", 2022, 50 , 5)
 bike = Bike("Yamaha", "YZF-R3", 2021, 30, 321)
 
 vehicleChoice = None
 days = 0
 
-
+# =========== Main Program =========== #
 
 while True:
   print("*************************************************")
@@ -122,22 +123,33 @@ while True:
   print("*************************************************")
 
   
-  choice = int(input("Choose a number from the menu: "))
+  choice = (input("Choose a number from the menu: "))
 
-  if choice == 1:
+  if choice == '1':
     vehicleChoice = input("Car or Bike ?: ").lower()
     UserVehicleChoice()
   
-  elif choice == 2:
+  elif choice == '2':
     days = int(input("Enter how many days you want to rent: "))
     NumberOfDays()
 
-  elif choice == 3:
+  elif choice == '3':
     NewPrices()
 
-  elif choice == 4:
+  elif choice == '4':
     ChosenVehicleInfo()
 
-  elif choice == 0:
+  elif choice == '0':
     print("PROGRAM EXIT")
     break
+
+  else:
+    print("Enter a valid choice")
+    continue
+
+
+#========================================
+  # Hello to whom ever reading this, 
+  # this program can be enhanced with different changes
+  # such as : adding more class instances and more menu options
+#========================================
