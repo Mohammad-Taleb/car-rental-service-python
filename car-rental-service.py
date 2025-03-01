@@ -57,6 +57,9 @@ class Bike(Vehicle):
 
 
 
+car = Car("Toyata", "Camry", 2022, 50 , 5)
+bike = Bike("Yamaha", "YZF-R3", 2021, 30, 321)
+
 
 
 
@@ -73,3 +76,7 @@ while True:
 
   
   choice = int(input("Choose a number from the menu: "))
+
+  if choice == 1:
+    vehicleChoice = input("Car or Bike ?: ").lower()
+    #UserVehicleChoice()
