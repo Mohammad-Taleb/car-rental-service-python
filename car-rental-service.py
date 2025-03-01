@@ -47,7 +47,13 @@ class Bike(Vehicle):
 
 
 
-
+def UserVehicleChoice():
+  if vehicleChoice == 'car':
+    car.display_info()
+  elif vehicleChoice == 'bike':
+    bike.display_info()
+  else:
+      print('Vehicle not available') 
 
 
 
@@ -79,4 +85,4 @@ while True:
 
   if choice == 1:
     vehicleChoice = input("Car or Bike ?: ").lower()
-    #UserVehicleChoice()
+    UserVehicleChoice()
